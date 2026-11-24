@@ -1,5 +1,4 @@
 import { api } from "../../services/api";
-import type { Demonstrativo } from "../../types/auth";
 
 export async function getDemonstrativoFile(
   url: string,
