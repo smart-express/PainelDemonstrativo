@@ -1,0 +1,78 @@
+.login-page {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 24px;
+  background: #f5f7fb;
+}
+
+.login-panel {
+  width: 100%;
+  max-width: 410px;
+  padding: 34px;
+  border: 1px solid #e9edf4;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 16px 48px rgba(23, 35, 60, 0.07);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-form label {
+  margin-top: 7px;
+  color: #354057;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.login-form .MuiOutlinedInput-root {
+  height: 48px;
+  font-size: 12px;
+}
+
+.login-form .MuiOutlinedInput-notchedOutline {
+  border-color: #e4e8ef;
+}
+
+.login-form .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #bdc9e2;
+}
+
+.login-form .MuiInputAdornment-root {
+  color: #9aa4b6;
+}
+
+.login-form .MuiInputAdornment-root svg {
+  font-size: 19px;
+}
+
+.login-form .MuiInputBase-input::placeholder {
+  color: #adb5c2;
+  opacity: 1;
+}
+
+.login-error.MuiAlert-root {
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.login-submit.MuiButton-root {
+  height: 48px;
+  margin-top: 14px;
+  font-size: 13px;
+  box-shadow: 0 8px 16px rgba(49, 88, 200, 0.17);
+}
+
+@media (max-width: 480px) {
+  .login-page {
+    padding: 16px;
+  }
+
+  .login-panel {
+    padding: 24px;
+  }
+}

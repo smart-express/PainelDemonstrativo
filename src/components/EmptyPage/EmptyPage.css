@@ -1,0 +1,91 @@
+.empty-page {
+  display: flex;
+  min-height: 355px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 38px 24px;
+  border: 1px solid #e9edf4;
+  border-radius: 15px;
+  background: #fff;
+  text-align: center;
+}
+
+.empty-page-illustration {
+  position: relative;
+  display: grid;
+  width: 115px;
+  height: 115px;
+  margin-bottom: 21px;
+  place-items: center;
+}
+
+.empty-page-icon {
+  z-index: 1;
+  display: grid;
+  width: 70px;
+  height: 70px;
+  place-items: center;
+  border: 1px solid #e6ecfb;
+  border-radius: 22px;
+  color: #3158c8;
+  background: linear-gradient(145deg, #f8faff, #edf2ff);
+  box-shadow: 0 10px 24px rgba(38, 67, 140, 0.08);
+}
+
+.empty-page-icon svg {
+  font-size: 32px;
+}
+
+.empty-page-orbit {
+  position: absolute;
+  border: 1px solid #edf0f6;
+  border-radius: 50%;
+}
+
+.empty-page-orbit-one {
+  inset: 7px;
+}
+
+.empty-page-orbit-two {
+  inset: 0;
+  border-style: dashed;
+}
+
+.empty-page h2 {
+  margin: 0 0 7px;
+  color: #27334a;
+  font-family: "Manrope", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+}
+
+.empty-page p {
+  max-width: 390px;
+  margin: 0;
+  color: #8791a2;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.empty-page-footnote {
+  margin-top: 21px;
+  padding: 7px 10px;
+  border-radius: 6px;
+  color: #8791a2;
+  background: #f7f8fb;
+  font-size: 9px;
+}
+
+@media (max-width: 520px) {
+  .empty-page {
+    min-height: 315px;
+    padding-inline: 18px;
+  }
+
+  .empty-page-footnote {
+    max-width: 270px;
+    line-height: 1.5;
+  }
+}

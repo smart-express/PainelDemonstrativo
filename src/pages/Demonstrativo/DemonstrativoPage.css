@@ -1,0 +1,146 @@
+.demonstrativo-page {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.demonstrativo-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.page-eyebrow {
+  color: #3158c8;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.45px;
+}
+
+.demonstrativo-heading h1 {
+  margin: 7px 0 6px;
+  color: #1b263b;
+  font-family: "Manrope", sans-serif;
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.demonstrativo-heading p {
+  margin: 0;
+  color: #7f899b;
+  font-size: 12px;
+}
+
+.demonstrativo-document {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px;
+  border: 1px solid #e9edf4;
+  border-radius: 15px;
+  background: #fff;
+}
+
+.demonstrativo-document-icon {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 13px;
+  color: #3158c8;
+  background: #eef2ff;
+}
+
+.demonstrativo-document-icon svg {
+  font-size: 27px;
+}
+
+.demonstrativo-document-details {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.demonstrativo-document-details h2 {
+  overflow: hidden;
+  margin: 0 0 2px;
+  color: #27334a;
+  font-size: 14px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+}
+
+.demonstrativo-document-details span {
+  color: #7f899b;
+  font-size: 11px;
+}
+
+.demonstrativo-document-actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 9px;
+}
+
+.demonstrativo-preview-panel {
+  overflow: hidden;
+  min-height: 650px;
+  border: 1px solid #e9edf4;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.demonstrativo-preview-loading {
+  display: flex;
+  min-height: 650px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  color: #7f899b;
+  font-size: 12px;
+}
+
+.demonstrativo-preview {
+  display: block;
+  width: 100%;
+  height: 650px;
+  border: 0;
+}
+
+@media (max-width: 520px) {
+  .demonstrativo-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .demonstrativo-document {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 18px;
+  }
+
+  .demonstrativo-document-details {
+    flex-basis: calc(100% - 72px);
+  }
+
+  .demonstrativo-document-actions {
+    width: 100%;
+    flex-direction: column;
+    margin-top: 6px;
+  }
+
+  .demonstrativo-preview-panel,
+  .demonstrativo-preview-loading {
+    min-height: 450px;
+  }
+
+  .demonstrativo-preview {
+    height: 450px;
+  }
+}

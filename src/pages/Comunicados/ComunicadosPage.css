@@ -1,0 +1,43 @@
+.comunicados-page {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.comunicados-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.comunicados-heading h1 {
+  margin: 7px 0 6px;
+  color: #1b263b;
+  font-family: "Manrope", sans-serif;
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.comunicados-heading p {
+  margin: 0;
+  color: #7f899b;
+  font-size: 12px;
+}
+
+.comunicados-status-chip.MuiChip-root {
+  height: 28px;
+  border: 1px solid #e5eaf2;
+  color: #718098;
+  background: #fff;
+  font-size: 10px;
+}
+
+@media (max-width: 520px) {
+  .comunicados-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+}
