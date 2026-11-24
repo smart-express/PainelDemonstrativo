@@ -31,7 +31,7 @@ jobs:
           USER: ${{ secrets.ORACLE_USER }}
         run: |
           mkdir -p ~/.ssh
-          printf "%s\n" "$SSH_KEY" | tr -d '\r' > ~/.ssh/oracle_key
+          printf "%s" "$SSH_KEY" | tr -d ' \n\r' | base64 -d > ~/.ssh/oracle_key
           chmod 600 ~/.ssh/oracle_key
 
           ssh -o BatchMode=yes -o ConnectTimeout=15 -o StrictHostKeyChecking=no -i ~/.ssh/oracle_key "$USER@$HOST" \
