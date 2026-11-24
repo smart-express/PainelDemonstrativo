@@ -1,0 +1,44 @@
+﻿name: Deploy Front-end Oracle
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar código atualizado
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Instalar dependências e gerar build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Enviar build para o Servidor Oracle
+        env:
+          SSH_KEY: ${{ secrets.ORACLE_SSH_KEY }}
+          HOST: ${{ secrets.ORACLE_HOST }}
+          USER: ${{ secrets.ORACLE_USER }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/oracle_key
+          chmod 600 ~/.ssh/oracle_key
+
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/oracle_key $USER@$HOST \
+            "mkdir -p ~/backend-api/frontend_tmp ~/backend-api/frontend_dist && rm -rf ~/backend-api/frontend_tmp/*"
+
+          scp -o StrictHostKeyChecking=no -i ~/.ssh/oracle_key -r dist/* \
+            $USER@$HOST:~/backend-api/frontend_tmp/
+
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/oracle_key $USER@$HOST \
+            "rm -rf ~/backend-api/frontend_dist/* && cp -r ~/backend-api/frontend_tmp/* ~/backend-api/frontend_dist/ && rm -rf ~/backend-api/frontend_tmp"
