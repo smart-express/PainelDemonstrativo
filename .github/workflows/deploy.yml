@@ -31,14 +31,14 @@ jobs:
           USER: ${{ secrets.ORACLE_USER }}
         run: |
           mkdir -p ~/.ssh
-          echo "$SSH_KEY" > ~/.ssh/oracle_key
+          printf "%s\n" "$SSH_KEY" | tr -d '\r' > ~/.ssh/oracle_key
           chmod 600 ~/.ssh/oracle_key
 
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/oracle_key $USER@$HOST \
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/oracle_key "$USER@$HOST" \
             "mkdir -p ~/backend-api/frontend_tmp ~/backend-api/frontend_dist && rm -rf ~/backend-api/frontend_tmp/*"
 
           scp -o StrictHostKeyChecking=no -i ~/.ssh/oracle_key -r dist/* \
-            $USER@$HOST:~/backend-api/frontend_tmp/
+            "$USER@$HOST:~/backend-api/frontend_tmp/"
 
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/oracle_key $USER@$HOST \
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/oracle_key "$USER@$HOST" \
             "rm -rf ~/backend-api/frontend_dist/* && cp -r ~/backend-api/frontend_tmp/* ~/backend-api/frontend_dist/ && rm -rf ~/backend-api/frontend_tmp"
