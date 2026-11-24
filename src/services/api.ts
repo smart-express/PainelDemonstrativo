@@ -1,9 +1,9 @@
-import axios from "axios";
+﻿import axios from "axios";
 import { getSession } from "../auth/auth.service";
 
 const API_URL =
   import.meta.env.VITE_API_URL ||
-  "http://147.15.13.77:8000";
+  "https://painelpromotorexpress.147.15.13.77.nip.io";
 
 export const api = axios.create({
   baseURL: API_URL,
@@ -22,3 +22,4 @@ api.interceptors.request.use((config) => {
 
   return config;
 });
+
